@@ -53,7 +53,10 @@ staffMembers.defaultProps = {
 }
 
 staffMembers.PropTypes = {
-  name: PropTypes.string
+  name: PropTypes.string,
+  title: PropTypes.string,
+  dob: PropTypes.string,
+  salary: PropTypes.number
 }
 
   return (
@@ -66,7 +69,7 @@ staffMembers.PropTypes = {
       <StaffList staffMembers={staffMembers} onDelete={deleteStaff} onDisplay={displayInfo}/>
       <div>
         <div>
-        <h2>Add Staff</h2>
+        
         <AddStaff onAdd={addStaff}/>
         </div>
       </div>
