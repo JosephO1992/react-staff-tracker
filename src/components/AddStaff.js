@@ -30,7 +30,7 @@ const onSubmit = (e) => {
     return (
         <div>
             <h2>Add Staff</h2>
-<form className='staff-form' onSubmit={onSubmit}> 
+                <form className='staff-form' onSubmit={onSubmit}> 
             <div className='container' id="form-label">
                 <label> Staff Name </label>
                 <input type="text" placeholder='Add Staff Name' value={name} onChange={(e) => {

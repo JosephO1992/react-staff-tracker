@@ -1,0 +1,36 @@
+{
+  "staff": [
+    {
+      "id": 2,
+      "name": "Chloe Stanley",
+      "title": "UX Designer",
+      "dob": "2-7-1993",
+      "salary": 28000,
+      "open": false
+    },
+    {
+      "id": 3,
+      "name": "James Hutchinson",
+      "title": "Project Manager",
+      "dob": "10-12-1986",
+      "salary": 35000,
+      "open": false
+    },
+    {
+      "name": "Joe O'Reilly",
+      "title": "Software Developer",
+      "dob": "22-10-1992",
+      "salary": "27000",
+      "open": false,
+      "id": 4
+    },
+    {
+      "name": "John Smith",
+      "title": "Data Engineer",
+      "dob": "1-1-2000",
+      "salary": "27000",
+      "open": false,
+      "id": 5
+    }
+  ]
+}

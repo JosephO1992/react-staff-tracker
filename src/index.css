@@ -6,6 +6,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.app-container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
 .header {
     margin: 1rem;
 }
@@ -53,6 +58,7 @@ color: 'red'
 
 .more-info {
     display: none;
+
 }
 
 #form-label {
@@ -69,7 +75,8 @@ color: 'red'
 }
 
 .info-button {
-    margin-left: 0.5rem
+    margin-left: 0.5rem;
+        cursor: pointer;
 }
 
 .staff-form {

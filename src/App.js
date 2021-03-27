@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Header from './components/Header'
 import SearchBar from './components/SearchBar'
@@ -6,39 +6,67 @@ import StaffList from './components/StaffList'
 import AddStaff from './components/AddStaff'
 
 function App() {
-  const [staffMembers, setStaff ] = useState([
-      
-    {   
-        id: 1,
-        name: "Joe O'Reilly",
-        title: 'React Developer',
-        dob: "22-10-1992",
-        salary: 25000,
-        open: false
-    },
-    {
-        id: 2,
-        name: "Chloe Stanley",
-        title: 'UX Designer',
-        dob: "2-7-1993",
-        salary: 28000,
-        open: false
-      
-    }
+  const [staffMembers, setStaff ] = useState(
+    [
 
-])
+
+]
+)
+
+// Get tasks
+
+useEffect(() => {
+  const getStaff = async () => {
+    const staffFromServer = await fetchStaff()
+  
+    setStaff(staffFromServer)
+  }
+
+  getStaff()
+}, [])
+
+
+// Fetch Staff
+
+const fetchStaff = async () => {
+    const res = await fetch('http://localhost:5000/staff')
+    const data = await res.json()
+    
+    
+    return data;
+   
+  }
+
+  
+  
 
 // Add Task
 
-const addStaff = (staff) => {
-  const id = Math.floor(Math.random() * 10000 ) + 1
-  const newStaff = {id, ...staff}
-  setStaff([...staffMembers, newStaff])
+const addStaff = async (staff) => { 
+  const res = await fetch('http://localhost:5000/staff', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(staff)
+  })
+
+  const data = await res.json()
+
+  setStaff([...staffMembers, data])
+
+  // const id = Math.floor(Math.random() * 10000 ) + 1
+  // const newStaff = {id, ...staff}
+  // setStaff([...staffMembers, newStaff])
 }
 
-// Delete Task 
+// Delete Staff
 
-const deleteStaff = (id) => {
+const deleteStaff = async (id) =>  {
+  await fetch(`http://localhost:5000/staff/${id}`, {
+    method: 'DELETE'
+  })
+
   setStaff(staffMembers.filter((staff) => staff.id !== id)) // filters through the staffMembers array, then returns out any id's that aren't equal to the id passed in. 
 }
 
@@ -61,7 +89,8 @@ staffMembers.PropTypes = {
 
   return (
     <div className="App">
-      <header className="App-header">
+    <div className="app-container">
+    <header className="App-header">
         <Header />
         <SearchBar />
       </header>
@@ -74,6 +103,8 @@ staffMembers.PropTypes = {
         </div>
       </div>
       </div>
+    </div>
+      
     </div>
   );
 }
