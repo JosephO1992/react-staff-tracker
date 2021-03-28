@@ -19,7 +19,7 @@ This will give me a good chance to understand how props work and moving them up 
 - [ ] Add dashboarding functionality - I have left the bottom right portion of the screen empty for this.
     - [ ] Current salary spend.
     - [ ] Salary spend per capita.
-    - [] Average age.
+    - [ ] Average age.
 
 - [ ] Search functionality from the input bar
     - [x] Pass down function from the parent component to the SearchBar.js component.
