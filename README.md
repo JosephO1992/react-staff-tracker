@@ -12,21 +12,21 @@ This will give me a good chance to understand how props work and moving them up 
 
 ## Things left to do
 
-- [] Add more form validation
-    - [] The input for the dates have no set format, which I don't like. 
-    - [] Add some functions to the input to make sure the text is all capitalise the same way.
+- [ ] Add more form validation
+    - [ ] The input for the dates have no set format, which I don't like. 
+    - [ ] Add some functions to the input to make sure the text is all capitalise the same way.
 
-- [] Add dashboarding functionality - I have left the bottom right portion of the screen empty for this.
-    - [] Current salary spend.
-    - [] Salary spend per capita.
+- [ ] Add dashboarding functionality - I have left the bottom right portion of the screen empty for this.
+    - [ ] Current salary spend.
+    - [ ] Salary spend per capita.
     - [] Average age.
 
-- [] Search functionality from the input bar
+- [ ] Search functionality from the input bar
     - [x] Pass down function from the parent component to the SearchBar.js component.
     - [x] Get the input from the bar passed up to the app.js parent component.
-    - [] Filter through the StaffMembers array and display these staff members when the user types and input.
+    - [ ] Filter through the StaffMembers array and display these staff members when the user types and input.
 
-- [] Add an edit function to the app.
+- [ ] Add an edit function to the app.
 
 Lots of things to keep me busy!
 
