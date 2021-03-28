@@ -18,7 +18,7 @@ const onSubmit = (e) => {
         return
     } 
 
-    onAdd({ name, title, dob, salary, open})
+    onAdd({ name, title, dob, salary, open })
 
     setName('')
     setTitle('')

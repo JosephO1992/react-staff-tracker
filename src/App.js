@@ -37,10 +37,7 @@ const fetchStaff = async () => {
    
   }
 
-  
-  
-
-// Add Task
+// Add Staff
 
 const addStaff = async (staff) => { 
   const res = await fetch('http://localhost:5000/staff', {
@@ -76,6 +73,11 @@ const displayInfo = (id) => {
   setStaff(staffMembers.map((staff) => staff.id === id ? {...staff, open: !staff.open} : staff)) // id of the component is passed into the function. Then the staffMembers data is mapped through, if the staff.id (specific to the actually staffItem) is the same as the ID we are mapping through. We want to then use the spread operator to copy the existing props, apart from open, which will be set to the opposite of whatever it's already set to. 
 }
 
+const search = (searchInput) => {
+  
+  console.log(searchInput)
+}
+
 staffMembers.defaultProps = {
   open: false
 }
@@ -92,7 +94,7 @@ staffMembers.PropTypes = {
     <div className="app-container">
     <header className="App-header">
         <Header />
-        <SearchBar />
+        <SearchBar onSearch={search}/>
       </header>
       <div className='container'>
       <StaffList staffMembers={staffMembers} onDelete={deleteStaff} onDisplay={displayInfo}/>

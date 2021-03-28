@@ -1,11 +1,26 @@
-import React from 'react'
+import {useState} from 'react'
 
-function SearchBar() {
+function SearchBar({onSearch}) {
+    const [search, setSearch] = useState('')
+
+    const setInput = (e) => {
+        setSearch(e.target.value.toLowerCase())
+        
+        onSearch( {search} )
+        
+    }
+
+
     return (
         <div>
-            <input placeholder="Search through your database..." className="searchBar"></input>
+            <input placeholder="Search through your database..." className="searchBar" value={search} onInput={setInput}></input>
         </div>
     )
 }
 
 export default SearchBar
+
+// (e) => {
+//     setSearch(e.target.value.toLowerCase())
+//     console.log(search)
+// }
