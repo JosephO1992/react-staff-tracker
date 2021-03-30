@@ -89,6 +89,15 @@ staffMembers.PropTypes = {
   salary: PropTypes.number
 }
 
+// const salaries = staffMembers.filter((staffMembers) => {
+//    console.log(staffMembers.salary)
+  
+// }) 
+
+
+
+
+
   return (
     <div className="App">
     <div className="app-container">

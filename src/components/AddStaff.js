@@ -52,7 +52,7 @@ const onSubmit = (e) => {
             <div className='container' id="form-label">
                 <label> Salary </label>
                 <input type="number" placeholder='Add Salary' value={salary} onChange={(e) => {
-                    setSalary(e.target.value)
+                    setSalary(parseInt(e.target.value, 10))
                 }}/>
             </div>
             <input type="submit" value='Add Staff Member'/>

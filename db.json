@@ -17,20 +17,12 @@
       "open": false
     },
     {
-      "name": "Joe O'Reilly",
-      "title": "Software Developer",
-      "dob": "22-10-1992",
-      "salary": "27000",
+      "name": "James",
+      "title": "Test",
+      "dob": "22-3-1976",
+      "salary": 23000,
       "open": false,
       "id": 4
-    },
-    {
-      "name": "John Smith",
-      "title": "Data Engineer",
-      "dob": "1-1-2000",
-      "salary": "27000",
-      "open": false,
-      "id": 5
     }
   ]
 }
