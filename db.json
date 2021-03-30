@@ -25,20 +25,12 @@
       "id": 4
     },
     {
-      "name": "test",
-      "title": "test",
-      "dob": "4e5e45e4",
-      "salary": 45590,
+      "name": "Test",
+      "title": "Test",
+      "dob": "1992-10-01",
+      "salary": 12000,
       "open": false,
       "id": 5
-    },
-    {
-      "name": "Joe O'Reilly",
-      "title": "Developer",
-      "dob": "2021-03-16",
-      "salary": 26000,
-      "open": false,
-      "id": 6
     }
   ]
 }

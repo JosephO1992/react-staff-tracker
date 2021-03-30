@@ -22,7 +22,7 @@ const onSubmit = (e) => {
 
     setName('')
     setTitle('')
-    setDob('')
+    setDob(''.toLocaleString('en-GB'))
     setSalary('')
     setOpen(false)
 }

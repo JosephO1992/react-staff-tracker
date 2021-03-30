@@ -103,7 +103,7 @@ let salaries = staffMembers.map((staffMember) => { // maps through our staffMemb
 
 const salarySpend = salaries.reduce((acc, it) => acc + it, 0)
 
-console.log(staffMembers.length)
+// console.log(staffMembers.length)
 
 
 
