@@ -1,8 +1,9 @@
 import Staff from './Staff'
 
 const StaffList = ( {staffMembers, onDelete, onDisplay} ) => {
-
+    
     return (
+        
         <div>
             <h2> Your staff </h2>
             <div className="container-vertical staff-container">

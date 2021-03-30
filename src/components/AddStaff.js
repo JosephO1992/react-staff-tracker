@@ -45,7 +45,7 @@ const onSubmit = (e) => {
             </div>
             <div className='container' id="form-label"> 
                 <label> Date of Birth </label>
-                <input type="text" placeholder='Add Date of Birth' value={dob} onChange={(e) => {
+                <input type="date" placeholder='Add Date of Birth' value={dob} onChange={(e) => {
                     setDob(e.target.value)
                 }}/>
             </div>

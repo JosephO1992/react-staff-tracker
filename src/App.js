@@ -75,9 +75,11 @@ const displayInfo = (id) => {
   setStaff(staffMembers.map((staff) => staff.id === id ? {...staff, open: !staff.open} : staff)) // id of the component is passed into the function. Then the staffMembers data is mapped through, if the staff.id (specific to the actually staffItem) is the same as the ID we are mapping through. We want to then use the spread operator to copy the existing props, apart from open, which will be set to the opposite of whatever it's already set to. 
 }
 
+// Search
+
 const search = (searchInput) => {
   
-  console.log(searchInput)
+  console.log( searchInput)
 }
 
 staffMembers.defaultProps = {
@@ -91,7 +93,7 @@ staffMembers.PropTypes = {
   salary: PropTypes.number
 }
 
-
+// Dashboard component logic
 
 let salaries = staffMembers.map((staffMember) => { // maps through our staffMember array and returns just the salary into a new array salaries. Note: staffMember arg can be named anything.
 
@@ -116,7 +118,7 @@ console.log(staffMembers.length)
         <SearchBar onSearch={search}/>
       </header>
       <div className='container'>
-      <StaffList staffMembers={staffMembers} onDelete={deleteStaff} onDisplay={displayInfo}/>
+      <StaffList  staffMembers={staffMembers} onDelete={deleteStaff} onDisplay={displayInfo}/>
       <div>
         <div>
         
