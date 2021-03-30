@@ -17,12 +17,20 @@
       "open": false
     },
     {
-      "name": "James",
-      "title": "Test",
-      "dob": "22-3-1976",
-      "salary": 23000,
+      "name": "Jane Doe",
+      "title": "Developer",
+      "dob": "22-8-2000",
+      "salary": 16000,
       "open": false,
       "id": 4
+    },
+    {
+      "name": "test",
+      "title": "test",
+      "dob": "4e5e45e4",
+      "salary": 45590,
+      "open": false,
+      "id": 5
     }
   ]
 }

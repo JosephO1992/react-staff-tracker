@@ -82,3 +82,8 @@ color: 'red'
 .staff-form {
     margin-top: 2rem
 }
+
+.dashboard {
+    margin-top: 1rem;
+    min-height: 75vh;
+}

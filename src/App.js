@@ -4,6 +4,7 @@ import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import StaffList from './components/StaffList'
 import AddStaff from './components/AddStaff'
+import Dashboard from './components/Dashboard'
 
 function App() {
   const [staffMembers, setStaff ] = useState(
@@ -11,6 +12,7 @@ function App() {
 
 
 ]
+
 )
 
 // Get tasks
@@ -89,10 +91,18 @@ staffMembers.PropTypes = {
   salary: PropTypes.number
 }
 
-// const salaries = staffMembers.filter((staffMembers) => {
-//    console.log(staffMembers.salary)
+
+
+let salaries = staffMembers.map((staffMember) => { // maps through our staffMember array and returns just the salary into a new array salaries. Note: staffMember arg can be named anything.
+
+  return staffMember.salary
   
-// }) 
+})
+
+const salarySpend = salaries.reduce((acc, it) => acc + it, 0)
+
+console.log(staffMembers.length)
+
 
 
 
@@ -113,6 +123,9 @@ staffMembers.PropTypes = {
         <AddStaff onAdd={addStaff}/>
         </div>
       </div>
+      </div>
+      <div className="dashboard">
+        <Dashboard salarySpend={salarySpend} staffMembers={staffMembers}/>
       </div>
     </div>
       
