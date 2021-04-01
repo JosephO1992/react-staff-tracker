@@ -87,3 +87,7 @@ color: 'red'
     margin-top: 1rem;
     min-height: 75vh;
 }
+
+.pagination-bar {
+    margin-top: 1rem;
+}

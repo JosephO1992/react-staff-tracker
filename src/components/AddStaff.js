@@ -1,7 +1,5 @@
 import {useState} from 'react'
 
-
-
 export const AddStaff = ({onAdd}) => {
 
     const [name, setName] = useState('')

@@ -1,6 +1,7 @@
 import Staff from './Staff'
+import PaginationBar from './PaginationBar'
 
-const StaffList = ( {staffMembers, onDelete, onDisplay} ) => {
+const StaffList = ( {staffMembers, onDelete, onDisplay, numOfStaff} ) => {
     
     return (
         
@@ -9,6 +10,10 @@ const StaffList = ( {staffMembers, onDelete, onDisplay} ) => {
             <div className="container-vertical staff-container">
             {staffMembers.map((staff, index) => (
             <Staff key={index} staff={staff} onDelete={onDelete} onDisplay={onDisplay} />))}
+            <div >
+
+            <PaginationBar numOfStaff={numOfStaff}/>
+            </div>
             </div>
             
         </div>

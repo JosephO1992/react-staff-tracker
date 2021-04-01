@@ -6,7 +6,7 @@ function SearchBar({onSearch}) {
     const setInput = (e) => {
         setSearch(e.target.value.toLowerCase())
         
-        onSearch( {search} )
+        onSearch( {search:e.target.value.toLowerCase()} )
         
     }
 

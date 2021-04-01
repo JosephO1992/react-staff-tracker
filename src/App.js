@@ -1,138 +1,134 @@
-import { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import Header from './components/Header'
-import SearchBar from './components/SearchBar'
-import StaffList from './components/StaffList'
-import AddStaff from './components/AddStaff'
-import Dashboard from './components/Dashboard'
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
+import StaffList from "./components/StaffList";
+import AddStaff from "./components/AddStaff";
+import Dashboard from "./components/Dashboard";
 
 function App() {
-  const [staffMembers, setStaff ] = useState(
-    [
-
-
-]
-
-)
-
-// Get tasks
-
-useEffect(() => {
-  const getStaff = async () => {
-    const staffFromServer = await fetchStaff()
+	const [staffMembers, setStaff] = useState([]);
   
-    setStaff(staffFromServer)
-  }
+  const numOfStaff = staffMembers.length
 
-  getStaff()
-}, [])
+ 
 
+	// Get tasks
 
-// Fetch Staff
+	useEffect(() => {
+		const getStaff = async () => {
+			const staffFromServer = await fetchStaff();
 
-const fetchStaff = async () => {
-    const res = await fetch('http://localhost:5000/staff')
-    const data = await res.json()
-    
-    
-    return data;
-   
-  }
+			setStaff(staffFromServer);
+		};
 
-// Add Staff
+		getStaff();
+	}, []);
 
-const addStaff = async (staff) => { 
-  const res = await fetch('http://localhost:5000/staff', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(staff)
-  })
+	// Fetch Staff
 
-  const data = await res.json()
+	const fetchStaff = async () => {
+		const res = await fetch("http://localhost:5000/staff");
+		const data = await res.json();
 
-  setStaff([...staffMembers, data])
+		return data;
+	};
 
-  // const id = Math.floor(Math.random() * 10000 ) + 1
-  // const newStaff = {id, ...staff}
-  // setStaff([...staffMembers, newStaff])
-}
+	// Add Staff
 
-// Delete Staff
+	const addStaff = async (staff) => {
+		const res = await fetch("http://localhost:5000/staff", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(staff),
+		});
 
-const deleteStaff = async (id) =>  {
-  await fetch(`http://localhost:5000/staff/${id}`, {
-    method: 'DELETE'
-  })
+		const data = await res.json();
 
-  setStaff(staffMembers.filter((staff) => staff.id !== id)) // filters through the staffMembers array, then returns out any id's that aren't equal to the id passed in. 
-}
+		setStaff([...staffMembers, data]);
 
-// Toggle more info
+		// const id = Math.floor(Math.random() * 10000 ) + 1
+		// const newStaff = {id, ...staff}
+		// setStaff([...staffMembers, newStaff])
+	};
 
-const displayInfo = (id) => {
-  setStaff(staffMembers.map((staff) => staff.id === id ? {...staff, open: !staff.open} : staff)) // id of the component is passed into the function. Then the staffMembers data is mapped through, if the staff.id (specific to the actually staffItem) is the same as the ID we are mapping through. We want to then use the spread operator to copy the existing props, apart from open, which will be set to the opposite of whatever it's already set to. 
-}
+	// Delete Staff
 
-// Search
+	const deleteStaff = async (id) => {
+		await fetch(`http://localhost:5000/staff/${id}`, {
+			method: "DELETE",
+		});
 
-const search = (searchInput) => {
-  
-  console.log( searchInput)
-}
+		setStaff(staffMembers.filter((staff) => staff.id !== id)); // filters through the staffMembers array, then returns out any id's that aren't equal to the id passed in.
+	};
 
-staffMembers.defaultProps = {
-  open: false
-}
+	// Toggle more info
 
-staffMembers.PropTypes = {
-  name: PropTypes.string,
-  title: PropTypes.string,
-  dob: PropTypes.string,
-  salary: PropTypes.number
-}
+	const displayInfo = (id) => {
+		setStaff(
+			staffMembers.map((staff) =>
+				staff.id === id ? { ...staff, open: !staff.open } : staff
+			)
+		); // id of the component is passed into the function. Then the staffMembers data is mapped through, if the staff.id (specific to the actually staffItem) is the same as the ID we are mapping through. We want to then use the spread operator to copy the existing props, apart from open, which will be set to the opposite of whatever it's already set to.
+	};
 
-// Dashboard component logic
+	// Search
 
-let salaries = staffMembers.map((staffMember) => { // maps through our staffMember array and returns just the salary into a new array salaries. Note: staffMember arg can be named anything.
+	const search = (searchInput) => {
+		console.log(searchInput);
+	};
 
-  return staffMember.salary
-  
-})
+	staffMembers.defaultProps = {
+		open: false,
+	};
 
-const salarySpend = salaries.reduce((acc, it) => acc + it, 0)
+	staffMembers.PropTypes = {
+		name: PropTypes.string,
+		title: PropTypes.string,
+		dob: PropTypes.string,
+		salary: PropTypes.number,
+	};
 
-// console.log(staffMembers.length)
+	// Dashboard component logic
 
+	let salaries = staffMembers.map((staffMember) => {
+		// maps through our staffMember array and returns just the salary into a new array salaries. Note: staffMember arg can be named anything.
 
+		return staffMember.salary;
+	});
 
+	const salarySpend = salaries.reduce((acc, it) => acc + it, 0);
 
+	// console.log(staffMembers.length);
 
-
-  return (
-    <div className="App">
-    <div className="app-container">
-    <header className="App-header">
-        <Header />
-        <SearchBar onSearch={search}/>
-      </header>
-      <div className='container'>
-      <StaffList  staffMembers={staffMembers} onDelete={deleteStaff} onDisplay={displayInfo}/>
-      <div>
-        <div>
-        
-        <AddStaff onAdd={addStaff}/>
-        </div>
-      </div>
-      </div>
-      <div className="dashboard">
-        <Dashboard salarySpend={salarySpend} staffMembers={staffMembers}/>
-      </div>
-    </div>
-      
-    </div>
-  );
+	return (
+		<div className="App">
+			<div className="app-container">
+				<header className="App-header">
+					<Header />
+					<SearchBar onSearch={search} />
+				</header>
+				<div className="container">
+					<StaffList
+						staffMembers={staffMembers}
+						onDelete={deleteStaff}
+						onDisplay={displayInfo}
+            numOfStaff={numOfStaff}
+					/>
+					<div>
+						<div>
+							<AddStaff onAdd={addStaff} />
+						</div>
+					</div>
+				</div>
+				<div className="dashboard">
+					<Dashboard salarySpend={salarySpend} numOfStaff={numOfStaff} />
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default App;
