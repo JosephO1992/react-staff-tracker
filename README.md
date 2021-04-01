@@ -53,11 +53,13 @@ I also passed down my staffMembers array, so I can run the .length method on thi
 - [ ] Search functionality from the input bar
     - [x] Pass down function from the parent component to the SearchBar.js component.
     - [x] Get the input from the bar passed up to the app.js parent component.
+    This is now getting the correct search input, previously it was 1 keystoke behind.
     - [ ] Filter through the StaffMembers array and display these staff members when the user types and input.
 
 - [ ] Add an edit function to the app.
 
 - [ ] Pagination
+
 
 Lots of things to keep me busy!
 
