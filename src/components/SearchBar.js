@@ -4,9 +4,9 @@ function SearchBar({onSearch}) {
     const [search, setSearch] = useState('')
 
     const setInput = (e) => {
-        setSearch(e.target.value.toLowerCase())
+        setSearch(e.target.value)
         
-        onSearch( {search:e.target.value.toLowerCase()} )
+        onSearch( {search:e.target.value} )
         
     }
 

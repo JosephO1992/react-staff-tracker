@@ -8,12 +8,13 @@ import Dashboard from "./components/Dashboard";
 
 function App() {
 	const [staffMembers, setStaff] = useState([]);
+  const [search, setSearch] = useState('') // Getting search pushed up from SearchBar.js and put into a state variable.
   
   const numOfStaff = staffMembers.length
 
  
 
-	// Get tasks
+	// Get staff
 
 	useEffect(() => {
 		const getStaff = async () => {
@@ -74,11 +75,13 @@ function App() {
 		); // id of the component is passed into the function. Then the staffMembers data is mapped through, if the staff.id (specific to the actually staffItem) is the same as the ID we are mapping through. We want to then use the spread operator to copy the existing props, apart from open, which will be set to the opposite of whatever it's already set to.
 	};
 
-	// Search
+	// Search 
 
-	const search = (searchInput) => {
-		console.log(searchInput);
-	};
+  // Need to use filter() to return the staffMembers array with the search input applied
+  const onSearch = (searchInput) => {
+    setSearch(searchInput)
+  }
+	
 
 	staffMembers.defaultProps = {
 		open: false,
@@ -108,7 +111,7 @@ function App() {
 			<div className="app-container">
 				<header className="App-header">
 					<Header />
-					<SearchBar onSearch={search} />
+					<SearchBar onSearch={onSearch} />
 				</header>
 				<div className="container">
 					<StaffList
@@ -116,6 +119,8 @@ function App() {
 						onDelete={deleteStaff}
 						onDisplay={displayInfo}
             numOfStaff={numOfStaff}
+            search={search}
+            
 					/>
 					<div>
 						<div>
