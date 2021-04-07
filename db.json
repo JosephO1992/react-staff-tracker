@@ -1,14 +1,6 @@
 {
   "staff": [
     {
-      "id": 2,
-      "name": "Chloe Stanley",
-      "title": "UX Designer",
-      "dob": "2-7-1993",
-      "salary": 28000,
-      "open": false
-    },
-    {
       "id": 3,
       "name": "James Hutchinson",
       "title": "Project Manager",
@@ -31,6 +23,30 @@
       "salary": 12000,
       "open": false,
       "id": 5
+    },
+    {
+      "name": "Test2",
+      "title": "Test",
+      "dob": "",
+      "salary": 35000,
+      "open": false,
+      "id": 6
+    },
+    {
+      "name": "Jason Knight",
+      "title": "Project Manager",
+      "dob": "1999-03-12",
+      "salary": 33000,
+      "open": false,
+      "id": 7
+    },
+    {
+      "name": "Jeremy Clarkson",
+      "title": "QA Test",
+      "dob": "1960-07-22",
+      "salary": 45000,
+      "open": false,
+      "id": 8
     }
   ]
 }

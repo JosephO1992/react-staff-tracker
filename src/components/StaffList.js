@@ -2,16 +2,16 @@ import Staff from './Staff'
 import PaginationBar from './PaginationBar'
 
 
-const StaffList = ( {staffMembers, onDelete, onDisplay, numOfStaff, search} ) => {
+const StaffList = ( {staffMembers, onDelete, onDisplay, numOfStaff, search, postsPerPage, paginate, prevPage, nextPage} ) => {
     
 
     
-    let testArr = staffMembers;
-    let newArr = testArr.filter(el => el.name.includes({search})) // Doesn't seem to work...
-    let newNewArr = staffMembers.filter(el => el.salary > 25000) // Testing out filter function to get the hand of it. 
-    console.log(newNewArr)
-    console.log(newArr)
-    console.log(search)
+    // let testArr = staffMembers;
+    // let newArr = testArr.filter(el => el.name.includes({search})) // Doesn't seem to work...
+    // let newNewArr = staffMembers.filter(el => el.salary > 25000) // Testing out filter function to get the hand of it. 
+    // console.log(newNewArr)
+    // console.log(newArr)
+    // console.log(search)
 
     // Things to follow up:
 
@@ -29,7 +29,7 @@ const StaffList = ( {staffMembers, onDelete, onDisplay, numOfStaff, search} ) =>
             <Staff key={index} staff={staff} onDelete={onDelete} onDisplay={onDisplay} />))}
             <div >
 
-            <PaginationBar numOfStaff={numOfStaff}/>
+            <PaginationBar postsPerPage={postsPerPage} numOfStaff={numOfStaff} paginate={paginate} prevPage={prevPage} nextPage={nextPage}/>
             </div>
             </div>
             

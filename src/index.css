@@ -91,3 +91,12 @@ color: 'red'
 .pagination-bar {
     margin-top: 1rem;
 }
+
+.pagination-links {
+    text-decoration: none;
+    padding: 5px
+}
+
+.pagination-list-items {
+    list-style-type: none;
+}

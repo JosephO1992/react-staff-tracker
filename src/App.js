@@ -6,21 +6,25 @@ import StaffList from "./components/StaffList";
 import AddStaff from "./components/AddStaff";
 import Dashboard from "./components/Dashboard";
 
+
 function App() {
 	const [staffMembers, setStaff] = useState([]);
-  const [search, setSearch] = useState('') // Getting search pushed up from SearchBar.js and put into a state variable.
+	const [search, setSearch] = useState('') // Getting search pushed up from SearchBar.js and put into a state variable.
+	const [currentPage, setCurrentPage] = useState(1)
+	const [postsPerPage] = useState(3)
   
-  const numOfStaff = staffMembers.length
-
- 
+  	const numOfStaff = staffMembers.length
+	
 
 	// Get staff
 
 	useEffect(() => {
 		const getStaff = async () => {
+		
 			const staffFromServer = await fetchStaff();
 
 			setStaff(staffFromServer);
+		
 		};
 
 		getStaff();
@@ -34,6 +38,34 @@ function App() {
 
 		return data;
 	};
+
+	// PAGINATION
+
+	// Get current posts 
+	const indexOfLastPost = currentPage * postsPerPage
+	const indexOfFirstPost = indexOfLastPost - postsPerPage
+	const currentPosts = staffMembers.slice(indexOfFirstPost, indexOfLastPost)
+
+	// paginate links
+
+	const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+	console.log(currentPage)
+
+	// next / prev page
+
+	 const nextPage = () => {
+        if (currentPage < staffMembers.length)
+        setCurrentPage(currentPage + 1) 
+       
+        console.log('clicked')
+    }
+
+    const prevPage = () => {
+        if(currentPage > 1)
+        setCurrentPage(currentPage - 1);
+        console.log('clicked')
+    };
 
 	// Add Staff
 
@@ -115,12 +147,16 @@ function App() {
 				</header>
 				<div className="container">
 					<StaffList
-						staffMembers={staffMembers}
+						staffMembers={currentPosts}
 						onDelete={deleteStaff}
 						onDisplay={displayInfo}
-            numOfStaff={numOfStaff}
-            search={search}
-            
+            			numOfStaff={numOfStaff}
+            			search={search}
+						paginateBar={staffMembers}
+						postsPerPage={postsPerPage}
+						paginate={paginate}
+						prevPage={prevPage}
+						nextPage={nextPage}
 					/>
 					<div>
 						<div>
