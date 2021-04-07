@@ -59,6 +59,10 @@ I also passed down my staffMembers array, so I can run the .length method on thi
 - [ ] Add an edit function to the app.
 
 - [ ] Pagination
+    [x] Users can select the page they want and the results will update
+    [x] Added function for the user to go from previous to next page
+    [ ] Users can go to the last or first page
+    [ ] Users can select the amount of results to show per page
 
 
 Lots of things to keep me busy!
